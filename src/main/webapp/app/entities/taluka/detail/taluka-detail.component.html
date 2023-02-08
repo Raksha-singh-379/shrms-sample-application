@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="taluka">
+      <h2 data-cy="talukaDetailsHeading"><span jhiTranslate="shrmsApp.taluka.detail.title">Taluka</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ taluka.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.taluka.talukaName">Taluka Name</span></dt>
+        <dd>
+          <span>{{ taluka.talukaName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.taluka.lgdCode">Lgd Code</span></dt>
+        <dd>
+          <span>{{ taluka.lgdCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.taluka.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ taluka.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.taluka.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ taluka.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.taluka.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ taluka.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.taluka.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ taluka.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.taluka.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ taluka.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/taluka', taluka.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

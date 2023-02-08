@@ -1,0 +1,60 @@
+{
+  "applications": "*",
+  "changelogDate": "20230208061508",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "salary_settings",
+  "fields": [
+    {
+      "fieldName": "da",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "hra",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "employeeshare",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "companyshare",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "salaryFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "salaryTo",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "SalarySettings",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

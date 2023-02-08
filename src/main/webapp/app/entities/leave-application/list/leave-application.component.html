@@ -1,0 +1,221 @@
+<div>
+  <h2 id="page-heading" data-cy="LeaveApplicationHeading">
+    <span jhiTranslate="shrmsApp.leaveApplication.home.title">Leave Applications</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="shrmsApp.leaveApplication.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-leave-application"
+        [routerLink]="['/leave-application/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="shrmsApp.leaveApplication.home.createLabel"> Create a new Leave Application </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="leaveApplications?.length === 0">
+    <span jhiTranslate="shrmsApp.leaveApplication.home.notFound">No Leave Applications found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="leaveApplications && leaveApplications.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="leaveType">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.leaveType">Leave Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="balanceLeave">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.balanceLeave">Balance Leave</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="noOfDays">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.noOfDays">No Of Days</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="reason">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.reason">Reason</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="year">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.year">Year</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="formDate">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.formDate">Form Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="toDate">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.toDate">To Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="leaveStatus">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.leaveStatus">Leave Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.createdBy">Created By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdOn">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.createdOn">Created On</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="deleted">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.deleted">Deleted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="employee.id">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.employee">Employee</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="leavePolicy.id">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.leaveApplication.leavePolicy">Leave Policy</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leaveApplication of leaveApplications; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/leave-application', leaveApplication.id, 'view']">{{ leaveApplication.id }}</a>
+          </td>
+          <td>{{ leaveApplication.leaveType }}</td>
+          <td>{{ leaveApplication.balanceLeave }}</td>
+          <td>{{ leaveApplication.noOfDays }}</td>
+          <td>{{ leaveApplication.reason }}</td>
+          <td>{{ leaveApplication.year }}</td>
+          <td>{{ leaveApplication.formDate | formatMediumDatetime }}</td>
+          <td>{{ leaveApplication.toDate | formatMediumDatetime }}</td>
+          <td jhiTranslate="{{ 'shrmsApp.Status.' + leaveApplication.status }}">{{ leaveApplication.status }}</td>
+          <td jhiTranslate="{{ 'shrmsApp.LeaveStatus.' + leaveApplication.leaveStatus }}">{{ leaveApplication.leaveStatus }}</td>
+          <td>{{ leaveApplication.lastModified | formatMediumDatetime }}</td>
+          <td>{{ leaveApplication.lastModifiedBy }}</td>
+          <td>{{ leaveApplication.createdBy }}</td>
+          <td>{{ leaveApplication.createdOn | formatMediumDatetime }}</td>
+          <td>{{ leaveApplication.deleted }}</td>
+          <td>
+            <div *ngIf="leaveApplication.employee">
+              <a [routerLink]="['/employee', leaveApplication.employee.id, 'view']">{{ leaveApplication.employee.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="leaveApplication.leavePolicy">
+              <a [routerLink]="['/leave-policy', leaveApplication.leavePolicy.id, 'view']">{{ leaveApplication.leavePolicy.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/leave-application', leaveApplication.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/leave-application', leaveApplication.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(leaveApplication)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="leaveApplications && leaveApplications.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

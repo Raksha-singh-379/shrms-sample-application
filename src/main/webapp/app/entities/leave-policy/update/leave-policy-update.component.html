@@ -1,0 +1,174 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-leave-policy-heading" data-cy="LeavePolicyCreateUpdateHeading" jhiTranslate="shrmsApp.leavePolicy.home.createOrEditLabel">
+        Create or edit a Leave Policy
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.leaveType" for="field_leaveType">Leave Type</label>
+          <input type="text" class="form-control" name="leaveType" id="field_leaveType" data-cy="leaveType" formControlName="leaveType" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.isCarryForword" for="field_isCarryForword">Is Carry Forword</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isCarryForword"
+            id="field_isCarryForword"
+            data-cy="isCarryForword"
+            formControlName="isCarryForword"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.employeeType" for="field_employeeType">Employee Type</label>
+          <select class="form-control" name="employeeType" formControlName="employeeType" id="field_employeeType" data-cy="employeeType">
+            <option [ngValue]="null">{{ 'shrmsApp.EmployeeType.null' | translate }}</option>
+            <option *ngFor="let employeeType of employeeTypeValues" [value]="employeeType">
+              {{ 'shrmsApp.EmployeeType.' + employeeType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.genderLeave" for="field_genderLeave">Gender Leave</label>
+          <select class="form-control" name="genderLeave" formControlName="genderLeave" id="field_genderLeave" data-cy="genderLeave">
+            <option [ngValue]="null">{{ 'shrmsApp.GenderLeave.null' | translate }}</option>
+            <option *ngFor="let genderLeave of genderLeaveValues" [value]="genderLeave">
+              {{ 'shrmsApp.GenderLeave.' + genderLeave | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.status" for="field_status">Status</label>
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'shrmsApp.Status.null' | translate }}</option>
+            <option *ngFor="let status of statusValues" [value]="status">{{ 'shrmsApp.Status.' + status | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.totalLeave" for="field_totalLeave">Total Leave</label>
+          <input
+            type="text"
+            class="form-control"
+            name="totalLeave"
+            id="field_totalLeave"
+            data-cy="totalLeave"
+            formControlName="totalLeave"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.maxLeave" for="field_maxLeave">Max Leave</label>
+          <input type="text" class="form-control" name="maxLeave" id="field_maxLeave" data-cy="maxLeave" formControlName="maxLeave" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.hasproRataLeave" for="field_hasproRataLeave"
+            >Haspro Rata Leave</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="hasproRataLeave"
+            id="field_hasproRataLeave"
+            data-cy="hasproRataLeave"
+            formControlName="hasproRataLeave"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.lastModified" for="field_lastModified">Last Modified</label>
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.lastModifiedBy" for="field_lastModifiedBy">Last Modified By</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.createdBy" for="field_createdBy">Created By</label>
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leavePolicy.deleted" for="field_deleted">Deleted</label>
+          <input type="checkbox" class="form-check" name="deleted" id="field_deleted" data-cy="deleted" formControlName="deleted" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

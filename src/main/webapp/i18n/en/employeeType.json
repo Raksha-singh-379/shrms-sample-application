@@ -1,0 +1,11 @@
+{
+  "shrmsApp": {
+    "EmployeeType": {
+      "null": "",
+      "PERMANENT": "Permanent",
+      "CONTRACT": "Contract",
+      "TRAINEE": "Trainee",
+      "TEMPORARY": "Temporary"
+    }
+  }
+}

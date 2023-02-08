@@ -1,0 +1,265 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-branch-heading" data-cy="BranchCreateUpdateHeading" jhiTranslate="shrmsApp.branch.home.createOrEditLabel">
+        Create or edit a Branch
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.branchName" for="field_branchName">Branch Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="branchName"
+            id="field_branchName"
+            data-cy="branchName"
+            formControlName="branchName"
+          />
+          <div *ngIf="editForm.get('branchName')!.invalid && (editForm.get('branchName')!.dirty || editForm.get('branchName')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('branchName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.branchcode" for="field_branchcode">Branchcode</label>
+          <input
+            type="text"
+            class="form-control"
+            name="branchcode"
+            id="field_branchcode"
+            data-cy="branchcode"
+            formControlName="branchcode"
+          />
+          <div
+            *ngIf="editForm.get('branchcode')!.invalid && (editForm.get('branchcode')!.dirty || editForm.get('branchcode')!.touched)"
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.ifscCode" for="field_ifscCode">Ifsc Code</label>
+          <input type="text" class="form-control" name="ifscCode" id="field_ifscCode" data-cy="ifscCode" formControlName="ifscCode" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.micrCode" for="field_micrCode">Micr Code</label>
+          <input type="text" class="form-control" name="micrCode" id="field_micrCode" data-cy="micrCode" formControlName="micrCode" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.swiftCode" for="field_swiftCode">Swift Code</label>
+          <input type="text" class="form-control" name="swiftCode" id="field_swiftCode" data-cy="swiftCode" formControlName="swiftCode" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.ibanCode" for="field_ibanCode">Iban Code</label>
+          <input type="text" class="form-control" name="ibanCode" id="field_ibanCode" data-cy="ibanCode" formControlName="ibanCode" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.isHeadOffice" for="field_isHeadOffice">Is Head Office</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isHeadOffice"
+            id="field_isHeadOffice"
+            data-cy="isHeadOffice"
+            formControlName="isHeadOffice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.routingTransitNo" for="field_routingTransitNo">Routing Transit No</label>
+          <input
+            type="text"
+            class="form-control"
+            name="routingTransitNo"
+            id="field_routingTransitNo"
+            data-cy="routingTransitNo"
+            formControlName="routingTransitNo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.phone" for="field_phone">Phone</label>
+          <input type="text" class="form-control" name="phone" id="field_phone" data-cy="phone" formControlName="phone" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.webSite" for="field_webSite">Web Site</label>
+          <input type="text" class="form-control" name="webSite" id="field_webSite" data-cy="webSite" formControlName="webSite" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.fax" for="field_fax">Fax</label>
+          <input type="text" class="form-control" name="fax" id="field_fax" data-cy="fax" formControlName="fax" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.isActivate" for="field_isActivate">Is Activate</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isActivate"
+            id="field_isActivate"
+            data-cy="isActivate"
+            formControlName="isActivate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.branchType" for="field_branchType">Branch Type</label>
+          <select class="form-control" name="branchType" formControlName="branchType" id="field_branchType" data-cy="branchType">
+            <option [ngValue]="null">{{ 'shrmsApp.BranchType.null' | translate }}</option>
+            <option *ngFor="let branchType of branchTypeValues" [value]="branchType">
+              {{ 'shrmsApp.BranchType.' + branchType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.createdBy" for="field_createdBy">Created By</label>
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.deleted" for="field_deleted">Deleted</label>
+          <input type="text" class="form-control" name="deleted" id="field_deleted" data-cy="deleted" formControlName="deleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.lastModified" for="field_lastModified">Last Modified</label>
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.lastModifiedBy" for="field_lastModifiedBy">Last Modified By</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.address" for="field_address">Address</label>
+          <select
+            class="form-control"
+            id="field_address"
+            data-cy="address"
+            name="address"
+            formControlName="address"
+            [compareWith]="compareAddress"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="addressOption" *ngFor="let addressOption of addressesSharedCollection">{{ addressOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.company" for="field_company">Company</label>
+          <select
+            class="form-control"
+            id="field_company"
+            data-cy="company"
+            name="company"
+            formControlName="company"
+            [compareWith]="compareCompany"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="companyOption" *ngFor="let companyOption of companiesSharedCollection">{{ companyOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.branch.branch" for="field_branch">Branch</label>
+          <select
+            class="form-control"
+            id="field_branch"
+            data-cy="branch"
+            name="branch"
+            formControlName="branch"
+            [compareWith]="compareRegion"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="regionOption" *ngFor="let regionOption of regionsSharedCollection">{{ regionOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

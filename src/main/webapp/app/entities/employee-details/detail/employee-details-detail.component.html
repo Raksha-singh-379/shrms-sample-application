@@ -1,0 +1,134 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="employeeDetails">
+      <h2 data-cy="employeeDetailsDetailsHeading"><span jhiTranslate="shrmsApp.employeeDetails.detail.title">Employee Details</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ employeeDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.passportNo">Passport No</span></dt>
+        <dd>
+          <span>{{ employeeDetails.passportNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.passportExpDate">Passport Exp Date</span></dt>
+        <dd>
+          <span>{{ employeeDetails.passportExpDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.telephoneNo">Telephone No</span></dt>
+        <dd>
+          <span>{{ employeeDetails.telephoneNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.nationality">Nationality</span></dt>
+        <dd>
+          <span>{{ employeeDetails.nationality }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.maritalStatus">Marital Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shrmsApp.MaritalStatus.' + employeeDetails.maritalStatus }}">{{ employeeDetails.maritalStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.religion">Religion</span></dt>
+        <dd>
+          <span>{{ employeeDetails.religion }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.isSpousEmployed">Is Spous Employed</span></dt>
+        <dd>
+          <span>{{ employeeDetails.isSpousEmployed }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.noOfChildren">No Of Children</span></dt>
+        <dd>
+          <span>{{ employeeDetails.noOfChildren }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ employeeDetails.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ employeeDetails.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ employeeDetails.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ employeeDetails.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ employeeDetails.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.employeeId">Employee Id</span></dt>
+        <dd>
+          <span>{{ employeeDetails.employeeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.age">Age</span></dt>
+        <dd>
+          <span>{{ employeeDetails.age }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.fatherName">Father Name</span></dt>
+        <dd>
+          <span>{{ employeeDetails.fatherName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.motherName">Mother Name</span></dt>
+        <dd>
+          <span>{{ employeeDetails.motherName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.aadharNo">Aadhar No</span></dt>
+        <dd>
+          <span>{{ employeeDetails.aadharNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.bloodGroup">Blood Group</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shrmsApp.BloodGroup.' + employeeDetails.bloodGroup }}">{{ employeeDetails.bloodGroup }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.dob">Dob</span></dt>
+        <dd>
+          <span>{{ employeeDetails.dob | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.expertise">Expertise</span></dt>
+        <dd>
+          <span>{{ employeeDetails.expertise }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.hobbies">Hobbies</span></dt>
+        <dd>
+          <span>{{ employeeDetails.hobbies }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.areaInterest">Area Interest</span></dt>
+        <dd>
+          <span>{{ employeeDetails.areaInterest }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.languageKnown">Language Known</span></dt>
+        <dd>
+          <span>{{ employeeDetails.languageKnown }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.description">Description</span></dt>
+        <dd>
+          <span>{{ employeeDetails.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employeeDetails.employee">Employee</span></dt>
+        <dd>
+          <div *ngIf="employeeDetails.employee">
+            <a [routerLink]="['/employee', employeeDetails.employee.id, 'view']">{{ employeeDetails.employee.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/employee-details', employeeDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

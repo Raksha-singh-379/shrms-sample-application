@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="holidays">
+      <h2 data-cy="holidaysDetailsHeading"><span jhiTranslate="shrmsApp.holidays.detail.title">Holidays</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ holidays.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.holidays.holidayName">Holiday Name</span></dt>
+        <dd>
+          <span>{{ holidays.holidayName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.holidays.holidayDate">Holiday Date</span></dt>
+        <dd>
+          <span>{{ holidays.holidayDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.holidays.day">Day</span></dt>
+        <dd>
+          <span>{{ holidays.day }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.holidays.year">Year</span></dt>
+        <dd>
+          <span>{{ holidays.year | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.holidays.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ holidays.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.holidays.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ holidays.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.holidays.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ holidays.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.holidays.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ holidays.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.holidays.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ holidays.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.holidays.company">Company</span></dt>
+        <dd>
+          <div *ngIf="holidays.company">
+            <a [routerLink]="['/company', holidays.company.id, 'view']">{{ holidays.company.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/holidays', holidays.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

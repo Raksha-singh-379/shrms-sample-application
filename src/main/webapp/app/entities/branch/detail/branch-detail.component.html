@@ -1,0 +1,126 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="branch">
+      <h2 data-cy="branchDetailsHeading"><span jhiTranslate="shrmsApp.branch.detail.title">Branch</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ branch.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.branchName">Branch Name</span></dt>
+        <dd>
+          <span>{{ branch.branchName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.description">Description</span></dt>
+        <dd>
+          <span>{{ branch.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.branchcode">Branchcode</span></dt>
+        <dd>
+          <span>{{ branch.branchcode }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.ifscCode">Ifsc Code</span></dt>
+        <dd>
+          <span>{{ branch.ifscCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.micrCode">Micr Code</span></dt>
+        <dd>
+          <span>{{ branch.micrCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.swiftCode">Swift Code</span></dt>
+        <dd>
+          <span>{{ branch.swiftCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.ibanCode">Iban Code</span></dt>
+        <dd>
+          <span>{{ branch.ibanCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.isHeadOffice">Is Head Office</span></dt>
+        <dd>
+          <span>{{ branch.isHeadOffice }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.routingTransitNo">Routing Transit No</span></dt>
+        <dd>
+          <span>{{ branch.routingTransitNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.phone">Phone</span></dt>
+        <dd>
+          <span>{{ branch.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.email">Email</span></dt>
+        <dd>
+          <span>{{ branch.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.webSite">Web Site</span></dt>
+        <dd>
+          <span>{{ branch.webSite }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.fax">Fax</span></dt>
+        <dd>
+          <span>{{ branch.fax }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.isActivate">Is Activate</span></dt>
+        <dd>
+          <span>{{ branch.isActivate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.branchType">Branch Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shrmsApp.BranchType.' + branch.branchType }}">{{ branch.branchType }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ branch.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ branch.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ branch.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ branch.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ branch.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.address">Address</span></dt>
+        <dd>
+          <div *ngIf="branch.address">
+            <a [routerLink]="['/address', branch.address.id, 'view']">{{ branch.address.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.company">Company</span></dt>
+        <dd>
+          <div *ngIf="branch.company">
+            <a [routerLink]="['/company', branch.company.id, 'view']">{{ branch.company.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.branch.branch">Branch</span></dt>
+        <dd>
+          <div *ngIf="branch.branch">
+            <a [routerLink]="['/region', branch.branch.id, 'view']">{{ branch.branch.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/branch', branch.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

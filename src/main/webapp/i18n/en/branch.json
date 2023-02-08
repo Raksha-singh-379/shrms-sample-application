@@ -1,0 +1,46 @@
+{
+  "shrmsApp": {
+    "branch": {
+      "home": {
+        "title": "Branches",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Branch",
+        "createOrEditLabel": "Create or edit a Branch",
+        "notFound": "No Branches found"
+      },
+      "created": "A new Branch is created with identifier {{ param }}",
+      "updated": "A Branch is updated with identifier {{ param }}",
+      "deleted": "A Branch is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Branch {{ id }}?"
+      },
+      "detail": {
+        "title": "Branch"
+      },
+      "id": "ID",
+      "branchName": "Branch Name",
+      "description": "Description",
+      "branchcode": "Branchcode",
+      "ifscCode": "Ifsc Code",
+      "micrCode": "Micr Code",
+      "swiftCode": "Swift Code",
+      "ibanCode": "Iban Code",
+      "isHeadOffice": "Is Head Office",
+      "routingTransitNo": "Routing Transit No",
+      "phone": "Phone",
+      "email": "Email",
+      "webSite": "Web Site",
+      "fax": "Fax",
+      "isActivate": "Is Activate",
+      "branchType": "Branch Type",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "deleted": "Deleted",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "address": "Address",
+      "company": "Company",
+      "branch": "Branch"
+    }
+  }
+}

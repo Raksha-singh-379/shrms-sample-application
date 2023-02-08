@@ -1,0 +1,37 @@
+{
+  "shrmsApp": {
+    "workExperience": {
+      "home": {
+        "title": "Work Experiences",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Work Experience",
+        "createOrEditLabel": "Create or edit a Work Experience",
+        "notFound": "No Work Experiences found"
+      },
+      "created": "A new Work Experience is created with identifier {{ param }}",
+      "updated": "A Work Experience is updated with identifier {{ param }}",
+      "deleted": "A Work Experience is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Work Experience {{ id }}?"
+      },
+      "detail": {
+        "title": "Work Experience"
+      },
+      "id": "ID",
+      "jobTitle": "Job Title",
+      "companyName": "Company Name",
+      "address": "Address",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "isDeleted": "Is Deleted",
+      "employeeId": "Employee Id",
+      "yearOfExp": "Year Of Exp",
+      "jobDesc": "Job Desc",
+      "employee": "Employee"
+    }
+  }
+}

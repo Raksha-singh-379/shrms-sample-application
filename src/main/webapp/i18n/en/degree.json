@@ -1,0 +1,13 @@
+{
+  "shrmsApp": {
+    "Degree": {
+      "null": "",
+      "PG": "Post_Graduation",
+      "GRADUATION": "Graduation",
+      "HSC": "Hsc",
+      "SSC": "Ssc",
+      "DIPLOMA": "Diploma",
+      "OTHER": "Other"
+    }
+  }
+}

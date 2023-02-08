@@ -1,0 +1,43 @@
+{
+  "shrmsApp": {
+    "empSalaryInfo": {
+      "home": {
+        "title": "Emp Salary Infos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Emp Salary Info",
+        "createOrEditLabel": "Create or edit a Emp Salary Info",
+        "notFound": "No Emp Salary Infos found"
+      },
+      "created": "A new Emp Salary Info is created with identifier {{ param }}",
+      "updated": "A Emp Salary Info is updated with identifier {{ param }}",
+      "deleted": "A Emp Salary Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Emp Salary Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Emp Salary Info"
+      },
+      "id": "ID",
+      "salaryBasis": "Salary Basis",
+      "amount": "Amount",
+      "paymentType": "Payment Type",
+      "isPfContribution": "Is Pf Contribution",
+      "pfNumber": "Pf Number",
+      "pfRate": "Pf Rate",
+      "additionalPfRate": "Additional Pf Rate",
+      "totalPfRate": "Total Pf Rate",
+      "isEsiContribution": "Is Esi Contribution",
+      "esiNumber": "Esi Number",
+      "esiRate": "Esi Rate",
+      "additionalEsiRate": "Additional Esi Rate",
+      "totalEsiRate": "Total Esi Rate",
+      "employeId": "Employe Id",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "deleted": "Deleted",
+      "employee": "Employee"
+    }
+  }
+}

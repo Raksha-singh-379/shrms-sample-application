@@ -1,0 +1,12 @@
+{
+  "shrmsApp": {
+    "LeaveStatus": {
+      "null": "",
+      "APPROVED": "Approved",
+      "PENDING": "Pending",
+      "REJECTED": "Rejected",
+      "CANCELLED": "cancelled",
+      "AVAILED": "Availed"
+    }
+  }
+}

@@ -1,0 +1,264 @@
+<div>
+  <h2 id="page-heading" data-cy="BranchHeading">
+    <span jhiTranslate="shrmsApp.branch.home.title">Branches</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="shrmsApp.branch.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-branch"
+        [routerLink]="['/branch/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="shrmsApp.branch.home.createLabel"> Create a new Branch </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="branches?.length === 0">
+    <span jhiTranslate="shrmsApp.branch.home.notFound">No Branches found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="branches && branches.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="branchName">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.branchName">Branch Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="branchcode">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.branchcode">Branchcode</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ifscCode">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.ifscCode">Ifsc Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="micrCode">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.micrCode">Micr Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="swiftCode">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.swiftCode">Swift Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ibanCode">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.ibanCode">Iban Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isHeadOffice">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.isHeadOffice">Is Head Office</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="routingTransitNo">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.routingTransitNo">Routing Transit No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="phone">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.phone">Phone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="webSite">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.webSite">Web Site</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fax">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.fax">Fax</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isActivate">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.isActivate">Is Activate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="branchType">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.branchType">Branch Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdOn">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.createdOn">Created On</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.createdBy">Created By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="deleted">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.deleted">Deleted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="address.id">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.address">Address</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="company.id">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.company">Company</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="branch.id">
+            <div class="d-flex">
+              <span jhiTranslate="shrmsApp.branch.branch">Branch</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let branch of branches; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/branch', branch.id, 'view']">{{ branch.id }}</a>
+          </td>
+          <td>{{ branch.branchName }}</td>
+          <td>{{ branch.description }}</td>
+          <td>{{ branch.branchcode }}</td>
+          <td>{{ branch.ifscCode }}</td>
+          <td>{{ branch.micrCode }}</td>
+          <td>{{ branch.swiftCode }}</td>
+          <td>{{ branch.ibanCode }}</td>
+          <td>{{ branch.isHeadOffice }}</td>
+          <td>{{ branch.routingTransitNo }}</td>
+          <td>{{ branch.phone }}</td>
+          <td>{{ branch.email }}</td>
+          <td>{{ branch.webSite }}</td>
+          <td>{{ branch.fax }}</td>
+          <td>{{ branch.isActivate }}</td>
+          <td jhiTranslate="{{ 'shrmsApp.BranchType.' + branch.branchType }}">{{ branch.branchType }}</td>
+          <td>{{ branch.createdOn | formatMediumDatetime }}</td>
+          <td>{{ branch.createdBy }}</td>
+          <td>{{ branch.deleted }}</td>
+          <td>{{ branch.lastModified | formatMediumDatetime }}</td>
+          <td>{{ branch.lastModifiedBy }}</td>
+          <td>
+            <div *ngIf="branch.address">
+              <a [routerLink]="['/address', branch.address.id, 'view']">{{ branch.address.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="branch.company">
+              <a [routerLink]="['/company', branch.company.id, 'view']">{{ branch.company.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="branch.branch">
+              <a [routerLink]="['/region', branch.branch.id, 'view']">{{ branch.branch.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/branch', branch.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/branch', branch.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(branch)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="branches && branches.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+{
+  "shrmsApp": {
+    "leavePolicy": {
+      "home": {
+        "title": "Leave Policies",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Leave Policy",
+        "createOrEditLabel": "Create or edit a Leave Policy",
+        "notFound": "No Leave Policies found"
+      },
+      "created": "A new Leave Policy is created with identifier {{ param }}",
+      "updated": "A Leave Policy is updated with identifier {{ param }}",
+      "deleted": "A Leave Policy is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Leave Policy {{ id }}?"
+      },
+      "detail": {
+        "title": "Leave Policy"
+      },
+      "id": "ID",
+      "leaveType": "Leave Type",
+      "isCarryForword": "Is Carry Forword",
+      "employeeType": "Employee Type",
+      "genderLeave": "Gender Leave",
+      "status": "Status",
+      "totalLeave": "Total Leave",
+      "maxLeave": "Max Leave",
+      "hasproRataLeave": "Haspro Rata Leave",
+      "description": "Description",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "deleted": "Deleted"
+    }
+  }
+}

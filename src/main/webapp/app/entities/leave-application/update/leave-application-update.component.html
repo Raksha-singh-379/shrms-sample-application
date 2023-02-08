@@ -1,0 +1,204 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-leave-application-heading"
+        data-cy="LeaveApplicationCreateUpdateHeading"
+        jhiTranslate="shrmsApp.leaveApplication.home.createOrEditLabel"
+      >
+        Create or edit a Leave Application
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.leaveType" for="field_leaveType">Leave Type</label>
+          <input type="text" class="form-control" name="leaveType" id="field_leaveType" data-cy="leaveType" formControlName="leaveType" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.balanceLeave" for="field_balanceLeave">Balance Leave</label>
+          <input
+            type="number"
+            class="form-control"
+            name="balanceLeave"
+            id="field_balanceLeave"
+            data-cy="balanceLeave"
+            formControlName="balanceLeave"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.noOfDays" for="field_noOfDays">No Of Days</label>
+          <input type="number" class="form-control" name="noOfDays" id="field_noOfDays" data-cy="noOfDays" formControlName="noOfDays" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.reason" for="field_reason">Reason</label>
+          <input type="text" class="form-control" name="reason" id="field_reason" data-cy="reason" formControlName="reason" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.year" for="field_year">Year</label>
+          <input type="number" class="form-control" name="year" id="field_year" data-cy="year" formControlName="year" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.formDate" for="field_formDate">Form Date</label>
+          <div class="d-flex">
+            <input
+              id="field_formDate"
+              data-cy="formDate"
+              type="datetime-local"
+              class="form-control"
+              name="formDate"
+              formControlName="formDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.toDate" for="field_toDate">To Date</label>
+          <div class="d-flex">
+            <input
+              id="field_toDate"
+              data-cy="toDate"
+              type="datetime-local"
+              class="form-control"
+              name="toDate"
+              formControlName="toDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.status" for="field_status">Status</label>
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'shrmsApp.Status.null' | translate }}</option>
+            <option *ngFor="let status of statusValues" [value]="status">{{ 'shrmsApp.Status.' + status | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.leaveStatus" for="field_leaveStatus">Leave Status</label>
+          <select class="form-control" name="leaveStatus" formControlName="leaveStatus" id="field_leaveStatus" data-cy="leaveStatus">
+            <option [ngValue]="null">{{ 'shrmsApp.LeaveStatus.null' | translate }}</option>
+            <option *ngFor="let leaveStatus of leaveStatusValues" [value]="leaveStatus">
+              {{ 'shrmsApp.LeaveStatus.' + leaveStatus | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.lastModified" for="field_lastModified">Last Modified</label>
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.createdBy" for="field_createdBy">Created By</label>
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.deleted" for="field_deleted">Deleted</label>
+          <input type="checkbox" class="form-check" name="deleted" id="field_deleted" data-cy="deleted" formControlName="deleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.employee" for="field_employee">Employee</label>
+          <select
+            class="form-control"
+            id="field_employee"
+            data-cy="employee"
+            name="employee"
+            formControlName="employee"
+            [compareWith]="compareEmployee"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="employeeOption" *ngFor="let employeeOption of employeesSharedCollection">{{ employeeOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.leaveApplication.leavePolicy" for="field_leavePolicy">Leave Policy</label>
+          <select
+            class="form-control"
+            id="field_leavePolicy"
+            data-cy="leavePolicy"
+            name="leavePolicy"
+            formControlName="leavePolicy"
+            [compareWith]="compareLeavePolicy"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="leavePolicyOption" *ngFor="let leavePolicyOption of leavePoliciesSharedCollection">
+              {{ leavePolicyOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

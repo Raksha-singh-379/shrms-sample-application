@@ -1,0 +1,12 @@
+{
+  "shrmsApp": {
+    "MaritalStatus": {
+      "null": "",
+      "MARRIED": "Married",
+      "SINGLE": "Single",
+      "DIVORCED": "Divorced",
+      "WIDOW": "Widow",
+      "OTHER": "Other"
+    }
+  }
+}

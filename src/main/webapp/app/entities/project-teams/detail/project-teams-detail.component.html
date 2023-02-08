@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="projectTeams">
+      <h2 data-cy="projectTeamsDetailsHeading"><span jhiTranslate="shrmsApp.projectTeams.detail.title">Project Teams</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ projectTeams.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projectTeams.teamMemberType">Team Member Type</span></dt>
+        <dd>
+          <span>{{ projectTeams.teamMemberType }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projectTeams.projectId">Project Id</span></dt>
+        <dd>
+          <span>{{ projectTeams.projectId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projectTeams.employeId">Employe Id</span></dt>
+        <dd>
+          <span>{{ projectTeams.employeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projectTeams.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ projectTeams.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projectTeams.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ projectTeams.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projectTeams.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ projectTeams.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projectTeams.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ projectTeams.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projectTeams.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ projectTeams.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projectTeams.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ projectTeams.companyId }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/project-teams', projectTeams.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+{
+  "shrmsApp": {
+    "employee": {
+      "home": {
+        "title": "Employees",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Employee",
+        "createOrEditLabel": "Create or edit a Employee",
+        "notFound": "No Employees found"
+      },
+      "created": "A new Employee is created with identifier {{ param }}",
+      "updated": "A Employee is updated with identifier {{ param }}",
+      "deleted": "A Employee is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Employee {{ id }}?"
+      },
+      "detail": {
+        "title": "Employee"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "username": "Username",
+      "password": "Password",
+      "email": "Email",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "department": "Department",
+      "designation": "Designation",
+      "gender": "Gender",
+      "employeeId": "Employee Id",
+      "joindate": "Joindate",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "deleted": "Deleted",
+      "reportedTo": "Reported To",
+      "companyId": "Company Id",
+      "branchId": "Branch Id",
+      "regionId": "Region Id"
+    }
+  }
+}

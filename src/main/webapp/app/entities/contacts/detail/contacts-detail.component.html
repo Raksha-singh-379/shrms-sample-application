@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="contacts">
+      <h2 data-cy="contactsDetailsHeading"><span jhiTranslate="shrmsApp.contacts.detail.title">Contacts</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ contacts.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.name">Name</span></dt>
+        <dd>
+          <span>{{ contacts.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shrmsApp.ContactType.' + contacts.type }}">{{ contacts.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.relation">Relation</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shrmsApp.Relationship.' + contacts.relation }}">{{ contacts.relation }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.phoneNo1">Phone No 1</span></dt>
+        <dd>
+          <span>{{ contacts.phoneNo1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.phoneNo2">Phone No 2</span></dt>
+        <dd>
+          <span>{{ contacts.phoneNo2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ contacts.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ contacts.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ contacts.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ contacts.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ contacts.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.employeeId">Employee Id</span></dt>
+        <dd>
+          <span>{{ contacts.employeeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.contacts.employee">Employee</span></dt>
+        <dd>
+          <div *ngIf="contacts.employee">
+            <a [routerLink]="['/employee', contacts.employee.id, 'view']">{{ contacts.employee.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/contacts', contacts.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

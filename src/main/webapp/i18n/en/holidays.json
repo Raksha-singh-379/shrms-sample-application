@@ -1,0 +1,33 @@
+{
+  "shrmsApp": {
+    "holidays": {
+      "home": {
+        "title": "Holidays",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Holidays",
+        "createOrEditLabel": "Create or edit a Holidays",
+        "notFound": "No Holidays found"
+      },
+      "created": "A new Holidays is created with identifier {{ param }}",
+      "updated": "A Holidays is updated with identifier {{ param }}",
+      "deleted": "A Holidays is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Holidays {{ id }}?"
+      },
+      "detail": {
+        "title": "Holidays"
+      },
+      "id": "ID",
+      "holidayName": "Holiday Name",
+      "holidayDate": "Holiday Date",
+      "day": "Day",
+      "year": "Year",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "deleted": "Deleted",
+      "company": "Company"
+    }
+  }
+}

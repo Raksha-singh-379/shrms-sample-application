@@ -1,0 +1,11 @@
+{
+  "shrmsApp": {
+    "SalaryBasis": {
+      "null": "",
+      "HOURLY": "Hourly",
+      "DAILY": "Daily",
+      "WEEKLY": "Weekly",
+      "MONTHLY": "Monthly"
+    }
+  }
+}

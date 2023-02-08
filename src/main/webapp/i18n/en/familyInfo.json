@@ -1,0 +1,35 @@
+{
+  "shrmsApp": {
+    "familyInfo": {
+      "home": {
+        "title": "Family Infos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Family Info",
+        "createOrEditLabel": "Create or edit a Family Info",
+        "notFound": "No Family Infos found"
+      },
+      "created": "A new Family Info is created with identifier {{ param }}",
+      "updated": "A Family Info is updated with identifier {{ param }}",
+      "deleted": "A Family Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Family Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Family Info"
+      },
+      "id": "ID",
+      "name": "Name",
+      "dob": "Dob",
+      "relation": "Relation",
+      "phoneNo": "Phone No",
+      "address": "Address",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "deleted": "Deleted",
+      "employeeId": "Employee Id",
+      "employee": "Employee"
+    }
+  }
+}

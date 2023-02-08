@@ -1,0 +1,85 @@
+{
+  "applications": "*",
+  "changelogDate": "20230208061513",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "leave_application",
+  "fields": [
+    {
+      "fieldName": "leaveType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "balanceLeave",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "noOfDays",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "reason",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "formDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "toDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "ACTIVE (Active),INACTIVE (Inactive)"
+    },
+    {
+      "fieldName": "leaveStatus",
+      "fieldType": "LeaveStatus",
+      "fieldValues": "APPROVED (Approved),PENDING (Pending),REJECTED (Rejected),CANCELLED (cancelled),AVAILED (Availed)"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "LeaveApplication",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employee",
+      "relationshipName": "employee",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "leavePolicy",
+      "relationshipName": "leavePolicy",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="leaveType">
+      <h2 data-cy="leaveTypeDetailsHeading"><span jhiTranslate="shrmsApp.leaveType.detail.title">Leave Type</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ leaveType.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.leaveType.leaveType">Leave Type</span></dt>
+        <dd>
+          <span>{{ leaveType.leaveType }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.leaveType.noOfDays">No Of Days</span></dt>
+        <dd>
+          <span>{{ leaveType.noOfDays }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.leaveType.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shrmsApp.Status.' + leaveType.status }}">{{ leaveType.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.leaveType.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ leaveType.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.leaveType.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ leaveType.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.leaveType.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ leaveType.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.leaveType.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ leaveType.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.leaveType.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ leaveType.deleted }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/leave-type', leaveType.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

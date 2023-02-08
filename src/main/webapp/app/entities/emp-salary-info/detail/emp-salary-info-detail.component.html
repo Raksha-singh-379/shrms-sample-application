@@ -1,0 +1,110 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="empSalaryInfo">
+      <h2 data-cy="empSalaryInfoDetailsHeading"><span jhiTranslate="shrmsApp.empSalaryInfo.detail.title">Emp Salary Info</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.salaryBasis">Salary Basis</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shrmsApp.SalaryBasis.' + empSalaryInfo.salaryBasis }}">{{ empSalaryInfo.salaryBasis }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.amount">Amount</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.amount }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.paymentType">Payment Type</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.paymentType }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.isPfContribution">Is Pf Contribution</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.isPfContribution }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.pfNumber">Pf Number</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.pfNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.pfRate">Pf Rate</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.pfRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.additionalPfRate">Additional Pf Rate</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.additionalPfRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.totalPfRate">Total Pf Rate</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.totalPfRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.isEsiContribution">Is Esi Contribution</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.isEsiContribution }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.esiNumber">Esi Number</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.esiNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.esiRate">Esi Rate</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.esiRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.additionalEsiRate">Additional Esi Rate</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.additionalEsiRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.totalEsiRate">Total Esi Rate</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.totalEsiRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.employeId">Employe Id</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.employeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ empSalaryInfo.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.empSalaryInfo.employee">Employee</span></dt>
+        <dd>
+          <div *ngIf="empSalaryInfo.employee">
+            <a [routerLink]="['/employee', empSalaryInfo.employee.id, 'view']">{{ empSalaryInfo.employee.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/emp-salary-info', empSalaryInfo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

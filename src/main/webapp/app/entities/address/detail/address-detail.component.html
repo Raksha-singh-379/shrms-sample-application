@@ -1,0 +1,114 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="address">
+      <h2 data-cy="addressDetailsHeading"><span jhiTranslate="shrmsApp.address.detail.title">Address</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ address.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shrmsApp.AddressType.' + address.type }}">{{ address.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.line1">Line 1</span></dt>
+        <dd>
+          <span>{{ address.line1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.line2">Line 2</span></dt>
+        <dd>
+          <span>{{ address.line2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.country">Country</span></dt>
+        <dd>
+          <span>{{ address.country }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.state">State</span></dt>
+        <dd>
+          <span>{{ address.state }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.pincode">Pincode</span></dt>
+        <dd>
+          <span>{{ address.pincode }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.hasPrefered">Has Prefered</span></dt>
+        <dd>
+          <span>{{ address.hasPrefered }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.landMark">Land Mark</span></dt>
+        <dd>
+          <span>{{ address.landMark }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ address.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ address.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ address.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ address.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ address.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.employeeId">Employee Id</span></dt>
+        <dd>
+          <span>{{ address.employeeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.employee">Employee</span></dt>
+        <dd>
+          <div *ngIf="address.employee">
+            <a [routerLink]="['/employee', address.employee.id, 'view']">{{ address.employee.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.state">State</span></dt>
+        <dd>
+          <div *ngIf="address.state">
+            <a [routerLink]="['/state', address.state.id, 'view']">{{ address.state.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.district">District</span></dt>
+        <dd>
+          <div *ngIf="address.district">
+            <a [routerLink]="['/district', address.district.id, 'view']">{{ address.district.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.taluka">Taluka</span></dt>
+        <dd>
+          <div *ngIf="address.taluka">
+            <a [routerLink]="['/taluka', address.taluka.id, 'view']">{{ address.taluka.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.address.city">City</span></dt>
+        <dd>
+          <div *ngIf="address.city">
+            <a [routerLink]="['/city', address.city.id, 'view']">{{ address.city.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/address', address.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

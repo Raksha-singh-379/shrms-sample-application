@@ -1,0 +1,99 @@
+{
+  "applications": "*",
+  "changelogDate": "20230208061500",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "emp_salary_info",
+  "fields": [
+    {
+      "fieldName": "salaryBasis",
+      "fieldType": "SalaryBasis",
+      "fieldValues": "HOURLY (Hourly),DAILY (Daily),WEEKLY (Weekly),MONTHLY (Monthly)"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "paymentType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isPfContribution",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "pfNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pfRate",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "additionalPfRate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalPfRate",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "isEsiContribution",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "esiNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "esiRate",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "additionalEsiRate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalEsiRate",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "employeId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "EmpSalaryInfo",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employee",
+      "relationshipName": "employee",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

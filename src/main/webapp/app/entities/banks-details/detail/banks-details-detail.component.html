@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="banksDetails">
+      <h2 data-cy="banksDetailsDetailsHeading"><span jhiTranslate="shrmsApp.banksDetails.detail.title">Banks Details</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ banksDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.accountNo">Account No</span></dt>
+        <dd>
+          <span>{{ banksDetails.accountNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.bankName">Bank Name</span></dt>
+        <dd>
+          <span>{{ banksDetails.bankName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.ifscCode">Ifsc Code</span></dt>
+        <dd>
+          <span>{{ banksDetails.ifscCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.pan">Pan</span></dt>
+        <dd>
+          <span>{{ banksDetails.pan }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.branch">Branch</span></dt>
+        <dd>
+          <span>{{ banksDetails.branch }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ banksDetails.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ banksDetails.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ banksDetails.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ banksDetails.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ banksDetails.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.employeeId">Employee Id</span></dt>
+        <dd>
+          <span>{{ banksDetails.employeeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.banksDetails.employee">Employee</span></dt>
+        <dd>
+          <div *ngIf="banksDetails.employee">
+            <a [routerLink]="['/employee', banksDetails.employee.id, 'view']">{{ banksDetails.employee.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/banks-details', banksDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

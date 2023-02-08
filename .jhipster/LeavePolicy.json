@@ -1,0 +1,75 @@
+{
+  "applications": "*",
+  "changelogDate": "20230208061512",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "leave_policy",
+  "fields": [
+    {
+      "fieldName": "leaveType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isCarryForword",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "employeeType",
+      "fieldType": "EmployeeType",
+      "fieldValues": "PERMANENT (Permanent),CONTRACT (Contract),TRAINEE (Trainee),TEMPORARY (Temporary)"
+    },
+    {
+      "fieldName": "genderLeave",
+      "fieldType": "GenderLeave",
+      "fieldValues": "MALE_ONLY (Male_Only),FEMALE_ONLY (Female_Only),FOR_ALL (For_All)"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "ACTIVE (Active),INACTIVE (Inactive)"
+    },
+    {
+      "fieldName": "totalLeave",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maxLeave",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hasproRataLeave",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "LeavePolicy",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

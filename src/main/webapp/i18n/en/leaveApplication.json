@@ -1,0 +1,39 @@
+{
+  "shrmsApp": {
+    "leaveApplication": {
+      "home": {
+        "title": "Leave Applications",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Leave Application",
+        "createOrEditLabel": "Create or edit a Leave Application",
+        "notFound": "No Leave Applications found"
+      },
+      "created": "A new Leave Application is created with identifier {{ param }}",
+      "updated": "A Leave Application is updated with identifier {{ param }}",
+      "deleted": "A Leave Application is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Leave Application {{ id }}?"
+      },
+      "detail": {
+        "title": "Leave Application"
+      },
+      "id": "ID",
+      "leaveType": "Leave Type",
+      "balanceLeave": "Balance Leave",
+      "noOfDays": "No Of Days",
+      "reason": "Reason",
+      "year": "Year",
+      "formDate": "Form Date",
+      "toDate": "To Date",
+      "status": "Status",
+      "leaveStatus": "Leave Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "deleted": "Deleted",
+      "employee": "Employee",
+      "leavePolicy": "Leave Policy"
+    }
+  }
+}

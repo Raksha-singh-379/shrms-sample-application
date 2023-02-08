@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity SalarySettings.
+    -->
+    <changeSet id="20230208061508-1" author="jhipster">
+        <createTable tableName="salary_settings">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="da" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="hra" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="employeeshare" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="companyshare" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="salary_from" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="salary_to" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_on" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="deleted" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="salary_settings" columnName="salary_from" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="salary_settings" columnName="salary_to" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="salary_settings" columnName="last_modified" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="salary_settings" columnName="created_on" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20230208061508-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/salary_settings.csv"
+                  separator=";"
+                  tableName="salary_settings"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="da" type="numeric"/>
+            <column name="hra" type="numeric"/>
+            <column name="employeeshare" type="numeric"/>
+            <column name="companyshare" type="numeric"/>
+            <column name="salary_from" type="date"/>
+            <column name="salary_to" type="date"/>
+            <column name="last_modified" type="date"/>
+            <column name="last_modified_by" type="string"/>
+            <column name="created_by" type="string"/>
+            <column name="created_on" type="date"/>
+            <column name="deleted" type="boolean"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

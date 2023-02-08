@@ -1,0 +1,31 @@
+{
+  "shrmsApp": {
+    "leaveType": {
+      "home": {
+        "title": "Leave Types",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Leave Type",
+        "createOrEditLabel": "Create or edit a Leave Type",
+        "notFound": "No Leave Types found"
+      },
+      "created": "A new Leave Type is created with identifier {{ param }}",
+      "updated": "A Leave Type is updated with identifier {{ param }}",
+      "deleted": "A Leave Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Leave Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Leave Type"
+      },
+      "id": "ID",
+      "leaveType": "Leave Type",
+      "noOfDays": "No Of Days",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "deleted": "Deleted"
+    }
+  }
+}

@@ -1,0 +1,112 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="employee">
+      <h2 data-cy="employeeDetailsHeading"><span jhiTranslate="shrmsApp.employee.detail.title">Employee</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ employee.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ employee.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ employee.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.username">Username</span></dt>
+        <dd>
+          <span>{{ employee.username }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.password">Password</span></dt>
+        <dd>
+          <span>{{ employee.password }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.email">Email</span></dt>
+        <dd>
+          <span>{{ employee.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.phone">Phone</span></dt>
+        <dd>
+          <span>{{ employee.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.mobile">Mobile</span></dt>
+        <dd>
+          <span>{{ employee.mobile }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.department">Department</span></dt>
+        <dd>
+          <span>{{ employee.department }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.designation">Designation</span></dt>
+        <dd>
+          <span>{{ employee.designation }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.gender">Gender</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shrmsApp.Gender.' + employee.gender }}">{{ employee.gender }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.employeeId">Employee Id</span></dt>
+        <dd>
+          <span>{{ employee.employeeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.joindate">Joindate</span></dt>
+        <dd>
+          <span>{{ employee.joindate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ employee.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ employee.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ employee.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ employee.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ employee.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.reportedTo">Reported To</span></dt>
+        <dd>
+          <span>{{ employee.reportedTo }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ employee.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.branchId">Branch Id</span></dt>
+        <dd>
+          <span>{{ employee.branchId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.employee.regionId">Region Id</span></dt>
+        <dd>
+          <span>{{ employee.regionId }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/employee', employee.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,237 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-emp-salary-info-heading"
+        data-cy="EmpSalaryInfoCreateUpdateHeading"
+        jhiTranslate="shrmsApp.empSalaryInfo.home.createOrEditLabel"
+      >
+        Create or edit a Emp Salary Info
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.salaryBasis" for="field_salaryBasis">Salary Basis</label>
+          <select class="form-control" name="salaryBasis" formControlName="salaryBasis" id="field_salaryBasis" data-cy="salaryBasis">
+            <option [ngValue]="null">{{ 'shrmsApp.SalaryBasis.null' | translate }}</option>
+            <option *ngFor="let salaryBasis of salaryBasisValues" [value]="salaryBasis">
+              {{ 'shrmsApp.SalaryBasis.' + salaryBasis | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.amount" for="field_amount">Amount</label>
+          <input type="number" class="form-control" name="amount" id="field_amount" data-cy="amount" formControlName="amount" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.paymentType" for="field_paymentType">Payment Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="paymentType"
+            id="field_paymentType"
+            data-cy="paymentType"
+            formControlName="paymentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.isPfContribution" for="field_isPfContribution"
+            >Is Pf Contribution</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isPfContribution"
+            id="field_isPfContribution"
+            data-cy="isPfContribution"
+            formControlName="isPfContribution"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.pfNumber" for="field_pfNumber">Pf Number</label>
+          <input type="text" class="form-control" name="pfNumber" id="field_pfNumber" data-cy="pfNumber" formControlName="pfNumber" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.pfRate" for="field_pfRate">Pf Rate</label>
+          <input type="number" class="form-control" name="pfRate" id="field_pfRate" data-cy="pfRate" formControlName="pfRate" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.additionalPfRate" for="field_additionalPfRate"
+            >Additional Pf Rate</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="additionalPfRate"
+            id="field_additionalPfRate"
+            data-cy="additionalPfRate"
+            formControlName="additionalPfRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.totalPfRate" for="field_totalPfRate">Total Pf Rate</label>
+          <input
+            type="number"
+            class="form-control"
+            name="totalPfRate"
+            id="field_totalPfRate"
+            data-cy="totalPfRate"
+            formControlName="totalPfRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.isEsiContribution" for="field_isEsiContribution"
+            >Is Esi Contribution</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isEsiContribution"
+            id="field_isEsiContribution"
+            data-cy="isEsiContribution"
+            formControlName="isEsiContribution"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.esiNumber" for="field_esiNumber">Esi Number</label>
+          <input type="text" class="form-control" name="esiNumber" id="field_esiNumber" data-cy="esiNumber" formControlName="esiNumber" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.esiRate" for="field_esiRate">Esi Rate</label>
+          <input type="number" class="form-control" name="esiRate" id="field_esiRate" data-cy="esiRate" formControlName="esiRate" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.additionalEsiRate" for="field_additionalEsiRate"
+            >Additional Esi Rate</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="additionalEsiRate"
+            id="field_additionalEsiRate"
+            data-cy="additionalEsiRate"
+            formControlName="additionalEsiRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.totalEsiRate" for="field_totalEsiRate">Total Esi Rate</label>
+          <input
+            type="number"
+            class="form-control"
+            name="totalEsiRate"
+            id="field_totalEsiRate"
+            data-cy="totalEsiRate"
+            formControlName="totalEsiRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.employeId" for="field_employeId">Employe Id</label>
+          <input type="number" class="form-control" name="employeId" id="field_employeId" data-cy="employeId" formControlName="employeId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.lastModified" for="field_lastModified">Last Modified</label>
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.lastModifiedBy" for="field_lastModifiedBy">Last Modified By</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.createdBy" for="field_createdBy">Created By</label>
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.deleted" for="field_deleted">Deleted</label>
+          <input type="checkbox" class="form-check" name="deleted" id="field_deleted" data-cy="deleted" formControlName="deleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shrmsApp.empSalaryInfo.employee" for="field_employee">Employee</label>
+          <select
+            class="form-control"
+            id="field_employee"
+            data-cy="employee"
+            name="employee"
+            formControlName="employee"
+            [compareWith]="compareEmployee"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="employeeOption" *ngFor="let employeeOption of employeesSharedCollection">{{ employeeOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

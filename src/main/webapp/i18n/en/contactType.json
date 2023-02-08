@@ -1,0 +1,9 @@
+{
+  "shrmsApp": {
+    "ContactType": {
+      "null": "",
+      "PRIMARY": "Primary",
+      "SECONDARY": "Secondary"
+    }
+  }
+}

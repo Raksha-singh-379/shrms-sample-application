@@ -1,0 +1,10 @@
+{
+  "shrmsApp": {
+    "ProjectStatus": {
+      "null": "",
+      "INPROGRESS": "inProgress",
+      "COMPLETED": "completed",
+      "ONHOLD": "Onhold"
+    }
+  }
+}

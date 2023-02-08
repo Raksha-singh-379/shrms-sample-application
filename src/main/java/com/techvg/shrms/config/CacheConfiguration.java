@@ -48,6 +48,32 @@ public class CacheConfiguration {
             createCache(cm, com.techvg.shrms.domain.User.class.getName());
             createCache(cm, com.techvg.shrms.domain.Authority.class.getName());
             createCache(cm, com.techvg.shrms.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.techvg.shrms.domain.Employee.class.getName());
+            createCache(cm, com.techvg.shrms.domain.EmployeeDetails.class.getName());
+            createCache(cm, com.techvg.shrms.domain.Address.class.getName());
+            createCache(cm, com.techvg.shrms.domain.FamilyInfo.class.getName());
+            createCache(cm, com.techvg.shrms.domain.Contacts.class.getName());
+            createCache(cm, com.techvg.shrms.domain.BanksDetails.class.getName());
+            createCache(cm, com.techvg.shrms.domain.Education.class.getName());
+            createCache(cm, com.techvg.shrms.domain.WorkExperience.class.getName());
+            createCache(cm, com.techvg.shrms.domain.Projects.class.getName());
+            createCache(cm, com.techvg.shrms.domain.ProjectTeams.class.getName());
+            createCache(cm, com.techvg.shrms.domain.EmpSalaryInfo.class.getName());
+            createCache(cm, com.techvg.shrms.domain.Company.class.getName());
+            createCache(cm, com.techvg.shrms.domain.Region.class.getName());
+            createCache(cm, com.techvg.shrms.domain.Branch.class.getName());
+            createCache(cm, com.techvg.shrms.domain.State.class.getName());
+            createCache(cm, com.techvg.shrms.domain.District.class.getName());
+            createCache(cm, com.techvg.shrms.domain.Taluka.class.getName());
+            createCache(cm, com.techvg.shrms.domain.City.class.getName());
+            createCache(cm, com.techvg.shrms.domain.SalarySettings.class.getName());
+            createCache(cm, com.techvg.shrms.domain.Department.class.getName());
+            createCache(cm, com.techvg.shrms.domain.Designation.class.getName());
+            createCache(cm, com.techvg.shrms.domain.LeaveType.class.getName());
+            createCache(cm, com.techvg.shrms.domain.LeavePolicy.class.getName());
+            createCache(cm, com.techvg.shrms.domain.LeaveApplication.class.getName());
+            createCache(cm, com.techvg.shrms.domain.LeaveTranscation.class.getName());
+            createCache(cm, com.techvg.shrms.domain.Holidays.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

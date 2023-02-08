@@ -1,0 +1,68 @@
+{
+  "applications": "*",
+  "changelogDate": "20230208061454",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "contacts",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "ContactType",
+      "fieldValues": "PRIMARY (Primary),SECONDARY (Secondary)"
+    },
+    {
+      "fieldName": "relation",
+      "fieldType": "Relationship",
+      "fieldValues": "FATHER (Father),MOTHER (Mother),SPOUS (Spous),CHILD (Child),SISTER (Sister),BROTHER (Brother)"
+    },
+    {
+      "fieldName": "phoneNo1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNo2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "employeeId",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Contacts",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employee",
+      "relationshipName": "employee",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

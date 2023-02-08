@@ -1,0 +1,123 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="projects">
+      <h2 data-cy="projectsDetailsHeading"><span jhiTranslate="shrmsApp.projects.detail.title">Projects</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ projects.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.projectName">Project Name</span></dt>
+        <dd>
+          <span>{{ projects.projectName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.description">Description</span></dt>
+        <dd>
+          <span>{{ projects.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.clientName">Client Name</span></dt>
+        <dd>
+          <span>{{ projects.clientName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.cost">Cost</span></dt>
+        <dd>
+          <span>{{ projects.cost }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.costType">Cost Type</span></dt>
+        <dd>
+          <span>{{ projects.costType }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.priority">Priority</span></dt>
+        <dd>
+          <span>{{ projects.priority }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ projects.startDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ projects.endDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.deadLine">Dead Line</span></dt>
+        <dd>
+          <span>{{ projects.deadLine | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shrmsApp.ProjectStatus.' + projects.status }}">{{ projects.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.projectLead">Project Lead</span></dt>
+        <dd>
+          <span>{{ projects.projectLead }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.progressPercent">Progress Percent</span></dt>
+        <dd>
+          <span>{{ projects.progressPercent }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.openTasksNo">Open Tasks No</span></dt>
+        <dd>
+          <span>{{ projects.openTasksNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.completeTasksNo">Complete Tasks No</span></dt>
+        <dd>
+          <span>{{ projects.completeTasksNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.projectLogo">Project Logo</span></dt>
+        <dd>
+          <div *ngIf="projects.projectLogo">
+            <a (click)="openFile(projects.projectLogo, projects.projectLogoContentType)" jhiTranslate="entity.action.open">Open</a>
+            {{ projects.projectLogoContentType }}, {{ byteSize(projects.projectLogo) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.projectFile">Project File</span></dt>
+        <dd>
+          <span>{{ projects.projectFile }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ projects.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ projects.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ projects.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ projects.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ projects.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ projects.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shrmsApp.projects.employeeId">Employee Id</span></dt>
+        <dd>
+          <span>{{ projects.employeeId }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/projects', projects.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

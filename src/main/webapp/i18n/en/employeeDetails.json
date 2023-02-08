@@ -1,0 +1,49 @@
+{
+  "shrmsApp": {
+    "employeeDetails": {
+      "home": {
+        "title": "Employee Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Employee Details",
+        "createOrEditLabel": "Create or edit a Employee Details",
+        "notFound": "No Employee Details found"
+      },
+      "created": "A new Employee Details is created with identifier {{ param }}",
+      "updated": "A Employee Details is updated with identifier {{ param }}",
+      "deleted": "A Employee Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Employee Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Employee Details"
+      },
+      "id": "ID",
+      "passportNo": "Passport No",
+      "passportExpDate": "Passport Exp Date",
+      "telephoneNo": "Telephone No",
+      "nationality": "Nationality",
+      "maritalStatus": "Marital Status",
+      "religion": "Religion",
+      "isSpousEmployed": "Is Spous Employed",
+      "noOfChildren": "No Of Children",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "deleted": "Deleted",
+      "employeeId": "Employee Id",
+      "age": "Age",
+      "fatherName": "Father Name",
+      "motherName": "Mother Name",
+      "aadharNo": "Aadhar No",
+      "bloodGroup": "Blood Group",
+      "dob": "Dob",
+      "expertise": "Expertise",
+      "hobbies": "Hobbies",
+      "areaInterest": "Area Interest",
+      "languageKnown": "Language Known",
+      "description": "Description",
+      "employee": "Employee"
+    }
+  }
+}

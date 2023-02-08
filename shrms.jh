@@ -1,0 +1,580 @@
+entity Employee {
+    firstName String
+    lastName String
+    username String required unique
+    password String required
+    email String unique 
+    phone String
+    mobile String
+    department String
+    designation String
+    gender Gender
+    employeeId String required   // need to be unique but company wise so we can handle it throght the code
+    joindate Instant
+    createdBy String
+    createdOn Instant
+    lastModified Instant 
+    lastModifiedBy String
+    deleted Boolean
+    reportedTo Long //  It's an employee id, to whom the employee is going to report it leads to se
+    companyId Long   // It will considered as relationship, if we consider it as mapping then remove from here
+    branchId Long
+    regionId Long
+}
+
+enum Gender{
+    MALE(Male),
+    FEMALE(Female),
+    TRANSGENDER(Transgender)
+}
+
+entity EmployeeDetails {
+    passportNo String
+    passportExpDate Instant
+    telephoneNo String
+    nationality String
+    maritalStatus MaritalStatus
+    religion String
+    isSpousEmployed Boolean
+    noOfChildren Long
+    createdBy String
+    createdOn Instant
+    lastModified Instant 
+    lastModifiedBy String
+    deleted Boolean
+    employeeId Long  // it is also in relationship if we keep employeeId as mapping then remove from here
+    //below feilds are considered as per Lokmanya and common details  
+    age Long
+    fatherName String
+    motherName String
+    aadharNo String
+    bloodGroup BloodGroup
+    dob LocalDate 
+    expertise String
+    hobbies String
+    areaInterest String
+    languageKnown String
+    description String
+}
+
+enum BloodGroup
+{
+     A_POSITIVE(A_Positive),
+     B_POSITIVE(B_Positive),
+     O_POSITIVE(O_Positive),
+     O_NEGATIVE(O_Negative),
+     A_NEGATIVE(A_Negative),
+     B_NEGATIVE(B_Negative),
+     AB_POSITIVE(AB_Positive),
+     AB_NEGATIVE(AB_Negative)    
+}
+
+enum MaritalStatus {
+    MARRIED(Married),
+    SINGLE(Single),
+    DIVORCED(Divorced),
+    WIDOW(Widow),
+    OTHER(Other)    
+}
+
+
+entity Address {
+    type AddressType
+    line1 String
+    line2 String
+    country String
+    state String 
+    pincode String 
+    hasPrefered Boolean
+    landMark String
+    lastModified Instant 
+    lastModifiedBy String 
+    createdBy String
+    createdOn Instant
+    deleted Boolean
+    employeeId Long
+}
+
+ enum AddressType{
+    CURRENT_ADDRESS(Current_Address),
+    PERMANENT_ADDRESS(Permanent_Address)
+    EMPLOYMENT_ADDRESS(Employment_Address)
+}
+
+entity FamilyInfo {
+    name String
+    dob LocalDate  
+    relation Relationship
+    phoneNo String
+    address String
+    lastModified Instant 
+    lastModifiedBy String 
+    createdBy String
+    createdOn Instant
+    deleted Boolean
+    employeeId Long
+}
+
+enum Relationship {
+   FATHER(Father),
+   MOTHER(Mother),
+   SPOUS(Spous), // we can also saprate out it as husband and wife
+   CHILD(Child),
+   SISTER(Sister),
+   BROTHER(Brother) 
+}
+
+entity Contacts {
+    name String 
+    type ContactType
+    relation Relationship
+    phoneNo1 String
+    phoneNo2 String
+    lastModified Instant 
+    lastModifiedBy String 
+    createdBy String
+    createdOn Instant
+    deleted Boolean
+    employeeId Long
+}
+
+enum ContactType{
+    PRIMARY(Primary),
+    SECONDARY(Secondary)
+}
+
+entity BanksDetails {
+    accountNo Long
+    bankName String
+    ifscCode String 
+    pan String
+    branch String  // Need to discuss 
+    lastModified Instant 
+    lastModifiedBy String 
+    createdBy String
+    createdOn Instant
+    deleted Boolean
+    employeeId Long
+}
+
+entity Education {
+    institution String
+    subject String
+    startDate Instant
+    endDate Instant
+    degree Degree
+    grade String
+    description String   // need to discuss
+    lastModified Instant 
+    lastModifiedBy String 
+    createdBy String
+    createdOn Instant
+    deleted Boolean
+    employeeId Long
+}
+
+entity WorkExperience {
+    jobTitle String
+    companyName String
+    address String
+    startDate Instant
+    endDate Instant
+    lastModified Instant 
+    lastModifiedBy String 
+    createdBy String
+    createdOn Instant
+    isDeleted Boolean
+    employeeId Long
+// below feilds are considered as per Lokmanya and common details 
+    yearOfExp Double
+    jobDesc String
+}
+
+enum Degree
+{
+    PG(Post_Graduation),
+    GRADUATION(Graduation),
+    HSC(Hsc),
+    SSC(Ssc),
+    DIPLOMA(Diploma),
+    OTHER(Other)
+}
+
+
+entity Projects {   
+    projectName String
+    description String
+    clientName String
+    cost Double
+    costType String   // it may be hourly or fixed
+    priority String   // it should be high, medium and low
+    startDate Instant
+    endDate Instant
+    deadLine Instant
+    status ProjectStatus
+    projectLead String
+    progressPercent Double
+    openTasksNo Long
+    completeTasksNo Long
+    projectLogo Blob     //needs to discuss
+    projectFile String   // its uplode file field
+    lastModified Instant 
+    lastModifiedBy String 
+    createdBy String
+    createdOn Instant
+    deleted Boolean
+    companyId Long
+    employeeId Long // TODO here need to add team members table for project 
+}
+
+enum ProjectStatus {
+     INPROGRESS(inProgress),
+     COMPLETED(completed),
+     ONHOLD(Onhold)
+}
+
+entity ProjectTeams {  // we can also achive this by manytomany relationship of project and employee
+    teamMemberType String
+    projectId Long
+    employeId Long
+    lastModified Instant 
+    lastModifiedBy String 
+    createdBy String
+    createdOn Instant
+    isDeleted Boolean
+    companyId Long
+
+}
+
+entity EmpSalaryInfo{  
+    salaryBasis SalaryBasis
+    amount Double
+    PaymentType String //  payment type are fixed bank, cheque and cash
+    isPfContribution Boolean
+    pfNumber String
+    pfRate Double
+    additionalPfRate String //  need to check additional rate 
+    totalPfRate Double 
+    isEsiContribution Boolean
+    esiNumber String
+    esiRate Double
+    additionalEsiRate String //  need to check additional rate 
+    totalEsiRate Double    
+    employeId Long
+    lastModified Instant 
+    lastModifiedBy String 
+    createdBy String
+    createdOn Instant
+    deleted Boolean
+    employeId Long
+
+}
+
+enum SalaryBasis{
+   HOURLY(Hourly),
+   DAILY(Daily),
+   WEEKLY(Weekly),
+   MONTHLY(Monthly)
+}
+
+//-------Tables related to the metadata----
+entity Company{
+    companyName String
+    contactPerson String
+    address String
+    postalCode String
+    email String
+    phoneNumber String
+    mobileNumber String
+    websiteUrl String
+    fax String
+    regNumber String required unique
+    gstin String unique required unique
+    pan String unique
+    tan String unique
+    createdOn Instant
+	createdBy String
+    deleted String
+    lastModified Instant 
+	lastModifiedBy String
+}
+
+entity Region{
+    regionName String required unique
+    description String
+    createdOn Instant
+	createdBy String
+    deleted String
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity Branch{
+    branchName String required unique
+    description String 
+    branchcode String unique
+    ifscCode String
+    micrCode String
+    swiftCode String
+    ibanCode String
+    isHeadOffice Boolean
+    routingTransitNo String
+    phone String
+    email String 
+    webSite String
+    fax String
+    isActivate Boolean
+    branchType BranchType
+    createdOn Instant
+	createdBy String
+    deleted String
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+enum BranchType{
+     ZONAL_OFFICE(Zonal_Office)
+     BRANCH(Branch)
+}
+
+entity State {
+	stateName String required unique
+	lgdCode Long
+    createdOn Instant
+	createdBy String
+    deleted String
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity District {
+	districtName String required unique
+	lgdCode Long
+    createdOn Instant
+	createdBy String
+    deleted String
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity Taluka {
+	talukaName String required
+	lgdCode Long
+    createdOn Instant
+	createdBy String
+    deleted String
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity City {
+	cityName String required
+    lgdCode Long
+    createdOn Instant
+	createdBy String
+    deleted String
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity SalarySettings{
+    da Double
+    hra Double
+    employeeshare Double
+    companyshare Double
+    employeeshare Double
+    companyshare Double
+    salaryFrom Instant
+    salaryTo Instant
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    deleted Boolean
+}
+
+entity  Department{
+    departmentName String
+    description String
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    deleted Boolean
+}
+
+entity  Designation{
+    designationName String
+    description String
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    deleted Boolean
+}
+
+entity LeaveType{
+    leaveType String
+    noOfDays String
+    status Status
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    deleted Boolean
+}
+
+enum Status {
+   ACTIVE(Active),
+   INACTIVE(Inactive)
+}
+
+
+enum LeaveStatus{
+	APPROVED(Approved),
+    PENDING(Pending),
+    REJECTED(Rejected),
+    CANCELLED(cancelled),
+    AVAILED(Availed)
+}
+
+
+entity LeavePolicy {
+    leaveType String
+    isCarryForword Boolean
+    employeeType EmployeeType
+    genderLeave GenderLeave
+    status Status
+    totalLeave String
+    maxLeave String
+    hasproRataLeave Boolean
+    description String
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    deleted Boolean
+}
+
+enum GenderLeave{
+	MALE_ONLY(Male_Only),
+    FEMALE_ONLY(Female_Only),
+    FOR_ALL(For_All)
+}
+
+enum EmployeeType{
+	PERMANENT(Permanent),
+    CONTRACT(Contract),
+    TRAINEE(Trainee),
+    TEMPORARY(Temporary)
+}
+
+entity LeaveApplication {
+    leaveType String
+    balanceLeave Long
+    noOfDays Long
+    reason String
+    year Long
+    formDate Instant
+    toDate Instant
+    status Status
+  	leaveStatus LeaveStatus
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    deleted Boolean
+}
+
+
+entity LeaveTranscation {
+    leaveType String
+    empId String
+    monthDate Instant   
+    status Status 
+    year Long
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    deleted Boolean
+}
+
+entity Holidays{
+    holidayName String required
+    holidayDate Instant
+    day String 
+    year Instant
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    deleted Boolean
+}
+//-----------------------------------
+
+relationship OneToOne{
+    EmployeeDetails {employee} to Employee
+    
+}
+ 
+relationship ManyToOne {
+     Address {employee} to Employee
+     FamilyInfo{employee} to Employee
+     Contacts {employee} to Employee
+     BanksDetails{employee} to Employee
+     Education {employee} to Employee
+     WorkExperience {employee} to Employee
+     EmpSalaryInfo{employee} to Employee
+     
+}
+
+//--------------Relations for MetaData
+
+relationship OneToOne{
+    Company{address} to Address
+    Branch{address} to Address
+}
+
+relationship ManyToOne{
+    Region{company} to Company
+    Branch{company} to Company
+   } 
+
+relationship ManyToOne {
+     Address{state} to State
+     Address{district} to District
+     Address{taluka} to Taluka
+     Address{city} to City
+}
+
+relationship ManyToOne{
+  	LeaveApplication{employee} to Employee
+}
+
+relationship ManyToOne{
+    Branch{branch} to Region
+    Holidays{company} to Company
+    Designation{company} to Company
+    Department{company} to Company
+	
+}
+ 
+relationship ManyToOne{
+    LeaveApplication{leavePolicy} to LeavePolicy
+}
+//--------------
+    
+  // Set pagination options
+paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceClass
+
+filter *
+// Set an angular suffix
+// angularSuffix * with tvg

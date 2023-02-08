@@ -1,0 +1,32 @@
+{
+  "shrmsApp": {
+    "projectTeams": {
+      "home": {
+        "title": "Project Teams",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Project Teams",
+        "createOrEditLabel": "Create or edit a Project Teams",
+        "notFound": "No Project Teams found"
+      },
+      "created": "A new Project Teams is created with identifier {{ param }}",
+      "updated": "A Project Teams is updated with identifier {{ param }}",
+      "deleted": "A Project Teams is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Project Teams {{ id }}?"
+      },
+      "detail": {
+        "title": "Project Teams"
+      },
+      "id": "ID",
+      "teamMemberType": "Team Member Type",
+      "projectId": "Project Id",
+      "employeId": "Employe Id",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "isDeleted": "Is Deleted",
+      "companyId": "Company Id"
+    }
+  }
+}

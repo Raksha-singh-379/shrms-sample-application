@@ -1,0 +1,9 @@
+{
+  "shrmsApp": {
+    "BranchType": {
+      "null": "",
+      "ZONAL_OFFICE": "Zonal_Office",
+      "BRANCH": "Branch"
+    }
+  }
+}
